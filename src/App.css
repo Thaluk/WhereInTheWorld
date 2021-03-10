@@ -1,0 +1,45 @@
+html {
+  font-size: 16px;
+}
+:root {
+  --black: #111517;
+  --white: white;
+  --background: #fafafa;
+  --card: #F3F0F0;
+}
+body {
+  font-family: 'Nunito Sans', sans-serif;
+
+}
+
+main {
+  background: var(--background);
+  min-height: 100vh;
+  color: var(--black);
+}
+
+
+
+.is-dark-mode {
+  --black: white;
+  --white: #273542;
+  --background: #1a2833;
+  --card: #1a2935;
+  --input: #C4C4C4;
+}
+
+.is-light-mode {
+  --black: #111517;
+  --white: white;
+  --background: #fafafa;
+  --card: #F3F0F0;
+  --input: #B4B4B4;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --black: white;
+    --white: #273542;
+    --background: #1a2833;
+  }
+}
