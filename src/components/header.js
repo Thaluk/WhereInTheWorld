@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 import styled from 'styled-components'
 import Wrapper from './wrapper'
 
@@ -41,8 +41,16 @@ const HeaderStyled = styled.div`
 `
 
 function Header({setDarkMode, darkMode}) {
+  const history = useHistory();
+
   function handleclick() {
     setDarkMode(!darkMode);
+    history.push(`?dark_mode=${!darkMode}`);
+  }
+  const queryString = window.location.search;
+  const urlParams = new URLSearchParams(queryString);
+  if(urlParams.get('dark_mode')=='true'){
+    setDarkMode(true);
   }
   return (
     <HeaderStyled>

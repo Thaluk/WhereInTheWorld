@@ -24,15 +24,17 @@ const initialState = {
 const store = createStore(reducer, initialState);
 
 function App() {
-  const [darkMode, setDarkMode] = useState(false);
+  
+  const [darkMode, setDarkMode] = useState(true);
+
   const [checked, setChecked] = useState(false);
   const mainclass = darkMode ? 'is-dark-mode' : 'is-light-mode';
-
+  
   function changeMedia(mq) {
     setDarkMode(mq.matches)
     setChecked(mq.matches)
   }
-
+  
   useEffect(() => {
     const mq = window.matchMedia('(prefers-color-scheme: dark)');
     mq.addListener(changeMedia);
@@ -42,6 +44,7 @@ function App() {
       mq.removeListener(changeMedia)
     }
   }, [])
+  
 
   return (
     <main className={mainclass}>
@@ -49,8 +52,7 @@ function App() {
         <Router>
           <Header setDarkMode={setDarkMode} darkMode={darkMode}/>
           <Switch>
-            <Route path='/country/:id' component={CountryPage}>
-            </Route>
+            <Route path='/country/:id' render={(props) => <CountryPage {...props} darkMode={darkMode} /> } />
             <Route  path='/'>
               <ActionList/>
               <CountryList/>

@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
+
 import slugify from "slugify";
 
 const CountrySelectedStyled = styled.div`
@@ -91,7 +92,7 @@ function CountrySelected({
           </div>
         </div>
         <p className="borders"><strong>Border Countries:</strong></p>
-        {borders.map((item) => <span><Link to={`/country/${slugify(item)}`}><p className="border-item" onClick='location.reload()'>{item}</p></Link></span>)}
+        {borders.map((item) => <span><Link to={`/country/${slugify(item)}?dark_mode=${darkMode}`}><p className="border-item" onClick='location.reload()'>{item}</p></Link></span>)}
       </div>
     </CountrySelectedStyled>
   )
