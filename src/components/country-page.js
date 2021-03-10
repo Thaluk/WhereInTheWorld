@@ -25,7 +25,7 @@ const CountryPageStyled = styled.div`
 }
 `
 
-function CountryPage({ match, history }) {
+function CountryPage({ match, history, darkMode }) {
   let DBcountry = useSelector(state => state.countryList.find(item => item.alpha2Code === match.params.id))
   const [country, setCountry] = useState(DBcountry)
   useEffect(() => {
@@ -47,7 +47,7 @@ function CountryPage({ match, history }) {
     <CountryPageStyled>
       <Wrapper>
         <button className="back" onClick={handleClick}><i className="fas fa-long-arrow-alt-left"></i> Back</button>
-        <CountrySelected {...country} />
+        <CountrySelected {...country} darkMode={darkMode} />
       </Wrapper>
     </CountryPageStyled>
   )
