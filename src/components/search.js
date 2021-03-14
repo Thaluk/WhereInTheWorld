@@ -17,6 +17,7 @@ const SearchStyled = styled.div`
   }
 `
 
+
 function Search() {
   const [inputValue, setInputValue] = useState();
   const dispatch = useDispatch();
@@ -27,20 +28,12 @@ function Search() {
       payload: e.target.value,
     })
   }
-  const clearInput = () => {
-    dispatch({
-      type: 'SET_COUNTRY_BY_NAME',
-      payload: ''
-    })
-    setInputValue('')
-  }
-
 
   return (
     <SearchStyled>
-      {
+      {/* {
         inputValue && <i class="fas fa-times close" onClick={clearInput}></i>
-      }
+      } */}
 
       <Input placeholder='Search for a country...'  value={inputValue} onChange={filterByName}/>
     </SearchStyled>

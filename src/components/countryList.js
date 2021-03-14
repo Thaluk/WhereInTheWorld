@@ -19,7 +19,7 @@ const CountryListStyled = styled.div`
 function CountryList() {
   const dispatch = useDispatch();
   const countryList = useSelector((state) => {
-    if ('' !== state.filterByRegion && state.countryListByName.length === 0) { return state.coutryFilteredByRegion}
+    if ('' !== state.filterByRegion) { return state.coutryFilteredByRegion}
     if (state.countryListByName.length > 0 ) {
       return state.countryListByName
     }

@@ -11,7 +11,7 @@ function reducer(state, action) {
         list = state.countryList
       }
       const countryListByName = list.filter(country => country.name.toLowerCase().startsWith(action.payload.toLowerCase()))
-      return {...state, countryListByName}
+      return {...state, countryListByName, countryFilteredByRegion: [], filterByRegion: ''}
     }
     case 'FILTER_BY_REGION': {
       const { regionSelected } = action.payload;
